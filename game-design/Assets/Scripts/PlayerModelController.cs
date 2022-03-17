@@ -22,4 +22,13 @@ public class PlayerModelController : MonoBehaviour
 
         rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // The player collected a pickup
+        if (collision.gameObject.CompareTag("Pickup"))
+        {
+            
+        }
+    }
 }

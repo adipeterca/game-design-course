@@ -70,3 +70,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# Added by adipeterca
+/game-design/[Ll]ibrary/
+/game-design/[Tt]emp/
+/game-design/[Oo]bj/
+/game-design/[Bb]uild/
+/game-design/[Bb]uilds/
+/game-design/[Ll]ogs/
+/game-design/[Uu]ser[Ss]ettings/
+/game-design//[Mm]emoryCaptures/
