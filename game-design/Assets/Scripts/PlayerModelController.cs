@@ -23,12 +23,15 @@ public class PlayerModelController : MonoBehaviour
         rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        // The player collected a pickup
-        if (collision.gameObject.CompareTag("Pickup"))
+        if (other.CompareTag("Pickup"))
         {
-            
+            // Destroy the pickup object and increase the score
+            Destroy(other.gameObject.transform.parent.gameObject);
+            GameManagerController.Instance.IncreaseScore();
+
+            Debug.Log("Got one point!");
         }
     }
 }

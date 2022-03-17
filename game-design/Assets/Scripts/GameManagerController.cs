@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class GameManagerController : MonoBehaviour
 {
+
     // Static reference for the Singleton pattern
     private static GameManagerController instance = null;
 
@@ -24,22 +26,39 @@ public class GameManagerController : MonoBehaviour
     // Score for the number of pickups collected
     private int playerScore = 0;
 
-    private GameManagerController() { }
 
     /// <summary>
     /// Public static method for retrieving the only instance of the GameManagerController-er.
     /// </summary>
-    /// <returns>the requested reference</returns>
-    public static GameManagerController GetInstance()
+    public static GameManagerController Instance
     {
-        if (instance == null)
-            instance = new GameManagerController();
-        return instance;
+        get;
+        private set;
+    }
+
+    // Don't bother, taken from here
+    // https://gamedev.stackexchange.com/questions/116009/in-unity-how-do-i-correctly-implement-the-singleton-pattern
+    private void Awake()
+    {
+        // Make sure that there is always only one reference for the singleton
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this);
+        }
+        else
+        {
+            Instance = this;
+        }
     }
 
     private void Start()
     {
         SpawnPickups();
+    }
+
+    private void Update()
+    {
+        
     }
 
     /// <summary>
