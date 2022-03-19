@@ -6,10 +6,6 @@ using UnityEngine.UI;
 
 public class GameManagerController : MonoBehaviour
 {
-
-    // Static reference for the Singleton pattern
-    private static GameManagerController instance = null;
-
     [Header("Pickup Variables")]
 
     // Public pickup reference
@@ -94,7 +90,7 @@ public class GameManagerController : MonoBehaviour
             Instantiate(pickupReference).transform.position = position;
 
             // Update the list (in order to not spawn two pickups at the same location)
-            elements.Remove(pos);
+            elements.Remove(elements[pos]);
         }
 
     }
