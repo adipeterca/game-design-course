@@ -33,5 +33,13 @@ public class PlayerModelController : MonoBehaviour
 
             Debug.Log("Got one point!");
         }
+        else if (other.CompareTag("Jumpscare"))
+        {
+            // For the moment, each trigger will be destroyed.
+            // As a future improvement, each trigger could be reseted every X seconds.
+            GuiManagerController.Instance.Jumpscare();
+
+            Destroy(other.gameObject);
+        }
     }
 }

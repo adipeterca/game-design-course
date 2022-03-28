@@ -15,9 +15,8 @@ public class GameManagerController : MonoBehaviour
     [Range(1, 100)]
     public int pickupCount;
 
-    // Spawn point in which a pickup may spawn
-    public GameObject[] spawnPoints;
-
+    // Spawn points in which a pickup may spawn
+    public GameObject[] pickupSpawnPoints;
 
     // Score for the number of pickups collected
     private int playerScore = 0;
@@ -49,7 +48,7 @@ public class GameManagerController : MonoBehaviour
 
     private void Start()
     {
-        SpawnPickups();
+        SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
     }
 
     private void Update()
@@ -66,11 +65,13 @@ public class GameManagerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Private method which spawn pickups according to the given array of spawn points. <br></br>
-    /// Spawns elements as long as there are spaces left. 
-    /// If no more space is available (though this should be avoided), it does not raise an error. 
+    /// Private method used to spawn a given prefab over a given array of spawn points.<br></br>
+    /// By default, all spawn points will be filled.
     /// </summary>
-    private void SpawnPickups()
+    /// <param name="objectToSpawn">reference to the object to spawn</param>
+    /// <param name="spawnPoints">array of spawn points (usually empty GameObjects)</param>
+    /// <param name="maxCount">maximum number of elements to spawn (-1 by default)</param>
+    private void SpawnPrefabs(GameObject objectToSpawn, GameObject[] spawnPoints, int maxCount = -1)
     {
         List<int> elements = new List<int>();
 
@@ -80,18 +81,17 @@ public class GameManagerController : MonoBehaviour
         }
 
         int pos;
-        for (int i = 0; i < pickupCount && i < spawnPoints.Length; i++)
+        for (int i = 0; i < maxCount && i < spawnPoints.Length; i++)
         {
             // Choose a random element from the list
             pos = Random.Range(0, elements.Count);
 
             // Spawn a pickup at the picked location
             Vector3 position = spawnPoints[elements[pos]].transform.position;
-            Instantiate(pickupReference).transform.position = position;
+            Instantiate(objectToSpawn).transform.position = position;
 
             // Update the list (in order to not spawn two pickups at the same location)
             elements.Remove(elements[pos]);
         }
-
     }
 }
