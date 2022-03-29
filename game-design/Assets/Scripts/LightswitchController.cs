@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class LightswitchController : MonoBehaviour
 {
+    // Reference to the light source object
     public GameObject lightSource;
 
+    // Is the player in range?
     private bool inRange;
 
     // Start is called before the first frame update
@@ -27,6 +29,9 @@ public class LightswitchController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 lightSource.SetActive(!lightSource.activeSelf);
+
+                // Play the lightswitch sound
+                GetComponent<AudioSource>().Play();
             }
         }
     }
