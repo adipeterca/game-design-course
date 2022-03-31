@@ -26,7 +26,7 @@
 2. De pus un "cap" (valoare maxima) pe viteza pe care o poate prinde bila
 3. Lightswitches
     1. <s>Adaugarea de light switches (momentan, fara design) - ele ar trebui sa fie singurele lumini vizibile pe minimap (nici macar playerul nu ar trebui sa fie vizibil ca sa nu stie unde se afla daca nu are nicio lumina activata)</s>
-    2. Configurarea light switch-urilor cu minimap-ul
+    2. <s>Configurarea light switch-urilor cu minimap-ul</s>
 4. Configurarea volumului in MainScene bazandu-ne pe valoarea din Options din MainMenu (also trebuie setata o valoare default, let's say 50/100)
 5. Jucatorul sa poata fugi (adica sa sprinteze)
 
@@ -38,7 +38,7 @@
     1. Optiunea de a apasa "Esc" iar jocul sa se opreasca si sa dea display la un meniu simplu
     2. Meniul efectiv cu butoane "Continue" si "Exit" (momentan)
 3. <s>Implementarea unui jumpscare (imagine care acopera tot ecranul si isi da fade in aprox. 3 secunde)</s>
-4. Sprint bar pentru player
+4. <s>Sprint bar pentru player</s>
 
   
 <h1>DESIGN</h1>
