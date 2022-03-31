@@ -18,6 +18,7 @@ public class GameManagerController : MonoBehaviour
     // Spawn points in which a pickup may spawn
     public GameObject[] pickupSpawnPoints;
 
+
     // Score for the number of pickups collected
     private int playerScore = 0;
 

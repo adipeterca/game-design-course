@@ -16,7 +16,7 @@ public class PlayerModelController : MonoBehaviour
     }
 
     // Multiplier for movement speed
-    public float movementSpeedMultiplier = 1;
+    private float movementSpeedMultiplier = 10;
 
     // Rigidbody of the Player object
     private Rigidbody rb;
@@ -32,6 +32,24 @@ public class PlayerModelController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        InitializePlayerState();
+    }
+
+    void Update()
+    {
+        // The amount to modify (increase/decrease) stamina 
+        float staminaModifyValue = 0.5f;
+
+        // Just for testing the implementation
+        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() >= 0.1f)
+        {
+            GuiManagerController.Instance.DecreaseStamina(staminaModifyValue);
+        }
+        else
+        {
+            // To take eight times as long to get back the stamina
+            GuiManagerController.Instance.IncreaseStamina(staminaModifyValue / 8);
+        }
     }
 
     void FixedUpdate()
@@ -60,5 +78,11 @@ public class PlayerModelController : MonoBehaviour
 
             Destroy(other.gameObject);
         }
+    }
+
+    private void InitializePlayerState()
+    {
+        // Set the stamina to 100 at first
+        GuiManagerController.Instance.SetStamina(100);
     }
 }

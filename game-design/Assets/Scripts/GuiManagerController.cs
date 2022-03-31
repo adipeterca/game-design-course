@@ -8,6 +8,9 @@ using UnityEngine.UI;
 /// </summary>
 public class GuiManagerController : MonoBehaviour
 {
+    // Reference for the stamina slider Game Object
+    public Slider staminaSlider;
+
     private GuiManagerController() { }
 
     public static GuiManagerController Instance
@@ -35,5 +38,43 @@ public class GuiManagerController : MonoBehaviour
     {
         jumpscareImage.GetComponent<Animator>().SetTrigger("JumpscareTrigger");
         jumpscareImage.GetComponent<AudioSource>().Play();
+    }
+
+    /// <summary>
+    /// Public method used for setting the value of the stamina slider.<br></br>
+    /// It just sets the value and DOES NOT contain any logic whatsoever.<br></br>
+    /// The value should be between 0 and 100.
+    /// </summary>
+    /// <param name="amount">value to set</param>
+    public void SetStamina(float amount)
+    {
+        staminaSlider.value = amount;
+    }
+
+    /// <summary>
+    /// Public method used for decreasing a specified amount from the current value of the stamina slider.
+    /// </summary>
+    /// <param name="amount">the amount to decrease</param>
+    public void DecreaseStamina(float amount)
+    {
+        staminaSlider.value -= amount;
+    }
+
+    /// <summary>
+    /// Public method used for increasing a specified amount from the current value of the stamina slider.
+    /// </summary>
+    /// <param name="amount">the amount to increase</param>
+    public void IncreaseStamina(float amount)
+    {
+        staminaSlider.value += amount;
+    }
+
+    /// <summary>
+    /// Public method for getting the stamina value.
+    /// </summary>
+    /// <returns>the stamina value</returns>
+    public float GetStamina()
+    {
+        return staminaSlider.value;
     }
 }
