@@ -7,6 +7,9 @@ public class LightswitchController : MonoBehaviour
     // Reference to the light source object
     public GameObject lightSource;
 
+    // Reference to the flipper object
+    public GameObject flipper;
+
     // Is the player in range?
     private bool inRange;
 
@@ -32,6 +35,10 @@ public class LightswitchController : MonoBehaviour
 
                 // Play the lightswitch sound
                 GetComponent<AudioSource>().Play();
+
+                // Modify flip position
+                flipper.transform.localPosition = new Vector3(flipper.transform.localPosition.x, flipper.transform.localPosition.y, -flipper.transform.localPosition.z);
+                flipper.transform.localEulerAngles = new Vector3(35, 180 - flipper.transform.localEulerAngles.y, 0);
             }
         }
     }

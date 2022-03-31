@@ -41,7 +41,7 @@ public class PlayerModelController : MonoBehaviour
         float staminaModifyValue = 0.5f;
 
         // Just for testing the implementation
-        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() >= 0.1f)
+        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() >= 0f)
         {
             GuiManagerController.Instance.DecreaseStamina(staminaModifyValue);
         }
@@ -80,9 +80,11 @@ public class PlayerModelController : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Private method for initializing game variables.
+    /// </summary>
     private void InitializePlayerState()
     {
-        // Set the stamina to 100 at first
         GuiManagerController.Instance.SetStamina(100);
     }
 }
