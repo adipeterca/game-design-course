@@ -43,7 +43,7 @@
   
 <h1>DESIGN</h1>
 
-1. Design pentru foitele de licenta (Pickups) - de preferat Blender
+1. <s>Design pentru foitele de licenta (Pickups) - de preferat Blender</s>
 2. Design pentru un "om" care poate merge - un simplu cub care e animat (deci nu miscat prin forte) ar fi de ajuns (asta e mai traseu, dar daca o facem, iese super smecher.)
 3. <s>Design pentru light switch</s>
 4. <s>Animatie pentru a trece de la o scena la alta (un loading screen de exemplu)</s>
