@@ -4,7 +4,7 @@
 2. Sunet pentru Pickups (asset + setup)
 3. Muzica (aprox. 3-10 minute) de atmosfera pentru MainMenu (doar assetul)
 4. Sunet pentru jumpscare (asset + setup)
-5. Sunet pentru lightswitch (asset + setup)
+5. <s>Sunet pentru lightswitch (asset + setup)</s>
 6. <s>Sunet pentru "prof" (asset + setup)</s>
 
   
@@ -24,7 +24,7 @@
 
 1. <s>Un nou layout definitiv, destul de mare incat sa poti colecta 10 obiecte in 5-10 minute</s>
 2. De pus un "cap" (valoare maxima) pe viteza pe care o poate prinde bila
-3. Lightswitches
+3. <s>Lightswitches</s>
     1. <s>Adaugarea de light switches (momentan, fara design) - ele ar trebui sa fie singurele lumini vizibile pe minimap (nici macar playerul nu ar trebui sa fie vizibil ca sa nu stie unde se afla daca nu are nicio lumina activata)</s>
     2. <s>Configurarea light switch-urilor cu minimap-ul</s>
 4. Configurarea volumului in MainScene bazandu-ne pe valoarea din Options din MainMenu (also trebuie setata o valoare default, let's say 50/100)
@@ -46,4 +46,4 @@
 1. Design pentru foitele de licenta (Pickups) - de preferat Blender
 2. Design pentru un "om" care poate merge - un simplu cub care e animat (deci nu miscat prin forte) ar fi de ajuns (asta e mai traseu, dar daca o facem, iese super smecher.)
 3. <s>Design pentru light switch</s>
-4. Animatie pentru a trece de la o scena la alta (un loading screen de exemplu)
+4. <s>Animatie pentru a trece de la o scena la alta (un loading screen de exemplu)</s>
