@@ -13,10 +13,10 @@
 1. <s>Un script pentru jumpscares (cu OnTriggerEnter) + plasarea de trigger points pe harta</s>
 2. <s>Un script pentru activea unei lumini pe harta cand te afli in apropierea ei si apesi "E" (tot cu OnTriggerEnter / OnTriggerExit)</s>
 3. <s>Clasa de GlobalValues (singleton) care NU mosteneste Monobehaviour si poate fi folosita pentru a pasa valori de la o scena la alta (acest script nu trebuie atasat de un GameObject)</s>
-4. Prof
-    1. Adaugarea unui "prof" (momentan un cub) care merge dintr-un punct (Vector3) in altul (lista de puncte fiind stabilita apriori), fara sa interactioneze cu mediul inconjurator
-    2. Punctele reprezinta un "search-area", iar "prof"-ul se plimba de la un punct la altul (pe niste path-uri predefinite - deci lista initiala este impartita in niste subliste de puncte pe care "prof"-ul le va urmari) cautandu-l pe jucator. Daca il gaseste, isi lasa path-ul curent si incearca sa il prinda pe jucator. Daca acesta reuseste sa scape (adica sa iasa din aria "prof"-ului), atunci proful se intoarce la cautat (fie la cel mai aproapiat path pe care il poate urmari, fie la path-uri original, asta e mai mult alegerea celui care implementeaza).
-    3. [ALTERNATIVA] "prof"-ul se poate spawna pentru cateva secunde intr-o locatie random dintr-o lista predefinita de locatii, iar daca nu-l gaseste pe player, se respawneaza in alta locatie.
+4. <s>Prof</s>
+    1. <s>Adaugarea unui "prof" (momentan un cub) care merge dintr-un punct (Vector3) in altul (lista de puncte fiind stabilita apriori), fara sa interactioneze cu mediul inconjurator</s>
+    2. <s>Punctele reprezinta un "search-area", iar "prof"-ul se plimba de la un punct la altul (pe niste path-uri predefinite - deci lista initiala este impartita in niste subliste de puncte pe care "prof"-ul le va urmari) cautandu-l pe jucator. Daca il gaseste, isi lasa path-ul curent si incearca sa il prinda pe jucator. Daca acesta reuseste sa scape (adica sa iasa din aria "prof"-ului), atunci proful se intoarce la cautat (fie la cel mai aproapiat path pe care il poate urmari, fie la path-uri original, asta e mai mult alegerea celui care implementeaza).</s>
+    3. <s>[ALTERNATIVA] "prof"-ul se poate spawna pentru cateva secunde intr-o locatie random dintr-o lista predefinita de locatii, iar daca nu-l gaseste pe player, se respawneaza in alta locatie.</s>
 5. Jucatorul poate avea "sprint" pe o perioada scurta pentru a putea fugi de "prof"
 
   
