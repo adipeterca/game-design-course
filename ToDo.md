@@ -29,8 +29,11 @@
     2. <s>Configurarea light switch-urilor cu minimap-ul</s>
 4. Configurarea volumului in MainScene bazandu-ne pe valoarea din Options din MainMenu (also trebuie setata o valoare default, let's say 50/100)
 5. Jucatorul sa poata fugi (adica sa sprinteze)
-
+6. Adaugarea unui final pentru joc - dupa ce a colectat toate cele X pickup objects, sa se deschisa o usa/portal spre care trebuie sa ajunga playerul.
+7. Adaugarea unui end-game-screen pentru cand te prinde Enemy-ul (restart/back to main menu (butoane), "you collected X out of Y pickups" si altele asemenea).
+8. Pentru testare, bila sa primeasca AddRawForce/Input.Raw (sau ceva de genul) - forta sa nu creasca treptat, ci sa fie direct fie 1, fie -1
   
+
 <h1>GUI</h1>
 
 1. <s>Text pentru "nr. obiecte colectate / nr. obiecte per total"</s>
@@ -39,11 +42,18 @@
     2. <s>Meniul efectiv cu butoane "Continue" si "Exit" (momentan)</s>
 3. <s>Implementarea unui jumpscare (imagine care acopera tot ecranul si isi da fade in aprox. 3 secunde)</s>
 4. <s>Sprint bar pentru player</s>
+5. Numele jocului pe Main Menu
 
-  
+ 
 <h1>DESIGN</h1>
 
 1. <s>Design pentru foitele de licenta (Pickups) - de preferat Blender</s>
 2. Design pentru un "om" care poate merge - un simplu cub care e animat (deci nu miscat prin forte) ar fi de ajuns (asta e mai traseu, dar daca o facem, iese super smecher.)
 3. <s>Design pentru light switch</s>
 4. <s>Animatie pentru a trece de la o scena la alta (un loading screen de exemplu)</s>
+5. Design pentru pereti si podea - de preferat un Photoshop sau o imagine prestabilita (adica o textura adevarata)
+6. Filler blocks pe nivel - dulapuri, cutii, in principal obiecte statice care sa ofere un look mai natural
+7. Animatie pentru intrarea in MainScene - un camera pan de sus?
+8. Icon pentru joc (aici intra si un Logo + un nume)
+9. Design pentru Enemy
+10. Improvement pe partea de Main Scene (poate Enemy-ul in spate)
