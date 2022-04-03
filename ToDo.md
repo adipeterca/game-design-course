@@ -33,10 +33,10 @@
   
 <h1>GUI</h1>
 
-1. Text pentru "nr. obiecte colectate / nr. obiecte per total"
-2. Meniu in game
-    1. Optiunea de a apasa "Esc" iar jocul sa se opreasca si sa dea display la un meniu simplu
-    2. Meniul efectiv cu butoane "Continue" si "Exit" (momentan)
+1. <s>Text pentru "nr. obiecte colectate / nr. obiecte per total"</s>
+2. <s>Meniu in game</s>
+    1. <s>Optiunea de a apasa "Esc" iar jocul sa se opreasca si sa dea display la un meniu simplu</s>
+    2. <s>Meniul efectiv cu butoane "Continue" si "Exit" (momentan)</s>
 3. <s>Implementarea unui jumpscare (imagine care acopera tot ecranul si isi da fade in aprox. 3 secunde)</s>
 4. <s>Sprint bar pentru player</s>
 
