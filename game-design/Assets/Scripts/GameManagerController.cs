@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class GameManagerController : MonoBehaviour
@@ -21,6 +22,12 @@ public class GameManagerController : MonoBehaviour
 
     // Score for the number of pickups collected
     private int playerScore = 0;
+
+    // List of all audio sources available
+    AudioSource[] sounds;
+
+    // List of all audio sources that were playing a sound before the game was paused
+    bool[] soundsWasPlaying;
 
 
     /// <summary>
@@ -50,11 +57,68 @@ public class GameManagerController : MonoBehaviour
     private void Start()
     {
         SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
+
+        sounds = FindObjectsOfType<AudioSource>();
+        soundsWasPlaying = new bool[sounds.Length];
     }
 
     private void Update()
     {
-        
+        // The user pressed the ESC key
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!GuiManagerController.Instance.optionsMenu.activeSelf)
+            {
+                // Stop the game
+                Time.timeScale = 0;
+
+                GuiManagerController.Instance.optionsMenu.SetActive(true);
+
+                // Pause all the sounds
+                for (int i = 0; i < sounds.Length; i++)
+                {
+                    if (sounds[i].isPlaying)
+                    {
+                        sounds[i].Pause();
+                        soundsWasPlaying[i] = true;
+                    }
+                }
+            }
+            else
+            {
+                Continue();
+            }
+        }
+    }
+
+    /// <summary>
+    /// Callback for the 'Continue' button.
+    /// It resumes the game in its actual state.
+    /// </summary>
+    public void Continue()
+    {
+        // Start the game
+        Time.timeScale = 1;
+
+        GuiManagerController.Instance.optionsMenu.SetActive(false);
+
+        // Resume all sounds
+        AudioSource[] sounds = FindObjectsOfType<AudioSource>();
+        for (int i = 0; i < sounds.Length; i++)
+            if (soundsWasPlaying[i])
+                sounds[i].Play();
+    }
+
+    /// <summary>
+    /// Callback for the 'Quit' button.
+    /// It exists the current scene (1) and returns the user to the MainMenu scene (0).
+    /// </summary>
+    public void Quit()
+    {
+        // Revert to the old time scale before reloading a new scene
+        Time.timeScale = 1;
+
+        SceneManager.LoadScene(0);
     }
 
     /// <summary>
@@ -63,6 +127,16 @@ public class GameManagerController : MonoBehaviour
     public void IncreaseScore()
     {
         playerScore++;
+        GuiManagerController.Instance.UpdateCountText();
+    }
+
+    /// <summary>
+    /// Public getter for player score.
+    /// </summary>
+    /// <returns>the player's score</returns>
+    public int GetScore()
+    {
+        return playerScore;
     }
 
     /// <summary>

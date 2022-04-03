@@ -67,8 +67,6 @@ public class PlayerModelController : MonoBehaviour
             // Destroy the pickup object and increase the score
             Destroy(other.gameObject.transform.parent.gameObject);
             GameManagerController.Instance.IncreaseScore();
-
-            Debug.Log("Got one point!");
         }
         else if (other.CompareTag("Jumpscare"))
         {

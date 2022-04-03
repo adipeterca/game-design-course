@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 /// <summary>
 /// Singleton class responsible with handling all GUI updates.<br></br>
@@ -10,6 +11,12 @@ public class GuiManagerController : MonoBehaviour
 {
     // Reference for the stamina slider Game Object
     public Slider staminaSlider;
+
+    // Reference for the pickup count text Game Object
+    public TextMeshProUGUI countText;
+
+    // Reference to the options menu Game Object
+    public GameObject optionsMenu;
 
     private GuiManagerController() { }
 
@@ -30,6 +37,18 @@ public class GuiManagerController : MonoBehaviour
             Instance = this;
     }
 
+    private void Start()
+    {
+        UpdateCountText();
+    }
+
+    /// <summary>
+    /// Public method for updating the number of picked items.
+    /// </summary>
+    public void UpdateCountText()
+    {
+        countText.text = GameManagerController.Instance.GetScore() + " / " + GameManagerController.Instance.pickupCount;
+    }
 
     /// <summary>
     /// Public method used for simulating a jumpscare effect on the whole screen.
