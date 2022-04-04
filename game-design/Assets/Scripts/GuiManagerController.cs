@@ -13,10 +13,16 @@ public class GuiManagerController : MonoBehaviour
     public Slider staminaSlider;
 
     // Reference for the pickup count text Game Object
-    public TextMeshProUGUI countText;
+    public GameObject countText;
 
     // Reference to the options menu Game Object
     public GameObject optionsMenu;
+
+    // Will display the phrase 'Now escape!'
+    public GameObject endgameText;
+
+    // Endgame image which will give a fade out effect
+    public GameObject endgameMenu;
 
     private GuiManagerController() { }
 
@@ -40,6 +46,31 @@ public class GuiManagerController : MonoBehaviour
     private void Start()
     {
         UpdateCountText();
+        endgameText.SetActive(false);
+    }
+
+    /// <summary>
+    /// Public method for displaying the end game text.
+    /// Also deletes the count text.
+    /// </summary>
+    public void DisplayEndGameText()
+    {
+        countText.SetActive(false);
+        endgameText.SetActive(true);
+        endgameText.GetComponent<Animator>().SetTrigger("Play");
+    }
+
+    /// <summary>
+    /// Public method for displaying the end game menu.<br></br>
+    /// 0 for lose, 1 for win
+    /// </summary>
+    /// <param name="type">the type of endgame (win/lose)</param>
+    public void DisplayEndgameMenu(int type)
+    {
+        if (type == 1)
+            endgameMenu.GetComponent<Animator>().SetTrigger("Win");
+        else
+            endgameMenu.GetComponent<Animator>().SetTrigger("Lose");
     }
 
     /// <summary>
@@ -47,7 +78,7 @@ public class GuiManagerController : MonoBehaviour
     /// </summary>
     public void UpdateCountText()
     {
-        countText.text = GameManagerController.Instance.GetScore() + " / " + GameManagerController.Instance.pickupCount;
+        countText.GetComponent< TextMeshProUGUI>().text = GameManagerController.Instance.GetScore() + " / " + GameManagerController.Instance.pickupCount;
     }
 
     /// <summary>

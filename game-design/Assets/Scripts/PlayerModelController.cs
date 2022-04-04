@@ -37,6 +37,8 @@ public class PlayerModelController : MonoBehaviour
 
     void Update()
     {
+        if (GameManagerController.Instance.gameOver) return;
+
         // The amount to modify (increase/decrease) stamina 
         float staminaModifyValue = 0.5f;
 
@@ -54,8 +56,10 @@ public class PlayerModelController : MonoBehaviour
 
     void FixedUpdate()
     {
-        float v = Input.GetAxis("Vertical");
-        float h = Input.GetAxis("Horizontal");
+        if (GameManagerController.Instance.gameOver) return;
+
+        float v = Input.GetAxisRaw("Vertical");
+        float h = Input.GetAxisRaw("Horizontal");
 
         rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
     }
@@ -75,6 +79,14 @@ public class PlayerModelController : MonoBehaviour
             GuiManagerController.Instance.Jumpscare();
 
             Destroy(other.gameObject);
+        }
+        else if (other.CompareTag("Endgame"))
+        {
+            GuiManagerController.Instance.DisplayEndgameMenu(1);
+
+            // Destroy the enemy
+            Destroy(EnemyModelController.Instance.gameObject);
+
         }
     }
 

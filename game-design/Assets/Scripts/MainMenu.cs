@@ -18,6 +18,9 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         cameraAnim = GetComponent<Animator>();
+
+        // Set default value for volume
+        UpdateVolume();
     }
 
     /// <summary>

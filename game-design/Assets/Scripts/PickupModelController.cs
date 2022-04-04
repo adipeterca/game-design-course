@@ -11,7 +11,6 @@ public class PickupModelController : MonoBehaviour
     // Is the object going up of down?
     private bool goingUp = true;
 
-    
     void Update()
     {
         Animate();

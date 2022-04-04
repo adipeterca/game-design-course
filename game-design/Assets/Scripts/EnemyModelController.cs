@@ -10,6 +10,13 @@ using UnityEngine.AI;
 /// </summary>
 public class EnemyModelController : MonoBehaviour
 {
+    private EnemyModelController() { }
+    public static EnemyModelController Instance
+    {
+        get;
+        private set;
+    }
+
     // A list of positions at which the enemy can teleport to
     public Transform[] respawnPositions;
 
@@ -23,7 +30,16 @@ public class EnemyModelController : MonoBehaviour
     // The search distance for the Player for each respawn point
     private int distance = 30;
 
+    // Passed time for this script - used for respawn time
     private float passedTime = 0;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+            Destroy(Instance);
+        else
+            Instance = this;
+    }
 
     void Start()
     {
@@ -35,6 +51,13 @@ public class EnemyModelController : MonoBehaviour
 
     void Update()
     {
+        if (GameManagerController.Instance.gameOver)
+        {
+            // Slowly decrease the audio
+            GetComponent<AudioSource>().volume -= Time.deltaTime;
+            return;
+        }
+
         agent.SetDestination(PlayerModelController.Instance.gameObject.transform.position);
 
         // Increase the time
@@ -71,5 +94,15 @@ public class EnemyModelController : MonoBehaviour
         }
 
         return result;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        // Did the Enemy collide with the Player?
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GuiManagerController.Instance.DisplayEndgameMenu(0);
+            GameManagerController.Instance.gameOver = true;
+        }
     }
 }

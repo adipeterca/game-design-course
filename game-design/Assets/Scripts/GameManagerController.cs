@@ -13,12 +13,21 @@ public class GameManagerController : MonoBehaviour
     public GameObject pickupReference;
 
     // The number of pickup objects to spawn at the start of the game
-    [Range(1, 100)]
+    [Range(1, 10)]
     public int pickupCount;
 
     // Spawn points in which a pickup may spawn
     public GameObject[] pickupSpawnPoints;
 
+    [Header("End Game")]
+    // The light which will be displayed once all pickup objects are collected
+    public GameObject endgameLight;
+
+    // The collider which will register the Player as exiting the level
+    public GameObject endgameCollider;
+
+    [HideInInspector]
+    public bool gameOver = false;
 
     // Score for the number of pickups collected
     private int playerScore = 0;
@@ -59,11 +68,19 @@ public class GameManagerController : MonoBehaviour
         SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
 
         sounds = FindObjectsOfType<AudioSource>();
+        for (int i = 0; i < sounds.Length; i++)
+            sounds[i].volume = GlobalValues.GetInstance().volume / 100.0f;
         soundsWasPlaying = new bool[sounds.Length];
+
+        // Disable the end game light & collider at the start of the game
+        endgameLight.SetActive(false);
+        endgameCollider.SetActive(false);
     }
 
     private void Update()
     {
+        if (gameOver) return;
+
         // The user pressed the ESC key
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -127,6 +144,14 @@ public class GameManagerController : MonoBehaviour
     public void IncreaseScore()
     {
         playerScore++;
+        
+        // The player collected all pickups
+        if (playerScore == pickupCount)
+        {
+            endgameLight.SetActive(true);
+            endgameCollider.SetActive(true);
+            GuiManagerController.Instance.DisplayEndGameText();
+        }
         GuiManagerController.Instance.UpdateCountText();
     }
 
