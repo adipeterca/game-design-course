@@ -27,11 +27,12 @@
 3. <s>Lightswitches</s>
     1. <s>Adaugarea de light switches (momentan, fara design) - ele ar trebui sa fie singurele lumini vizibile pe minimap (nici macar playerul nu ar trebui sa fie vizibil ca sa nu stie unde se afla daca nu are nicio lumina activata)</s>
     2. <s>Configurarea light switch-urilor cu minimap-ul</s>
-4. Configurarea volumului in MainScene bazandu-ne pe valoarea din Options din MainMenu (also trebuie setata o valoare default, let's say 50/100)
+4. <s>Configurarea volumului in MainScene bazandu-ne pe valoarea din Options din MainMenu (also trebuie setata o valoare default, let's say 50/100)</s>
 5. Jucatorul sa poata fugi (adica sa sprinteze)
-6. Adaugarea unui final pentru joc - dupa ce a colectat toate cele X pickup objects, sa se deschisa o usa/portal spre care trebuie sa ajunga playerul.
-7. Adaugarea unui end-game-screen pentru cand te prinde Enemy-ul (restart/back to main menu (butoane), "you collected X out of Y pickups" si altele asemenea).
-8. Pentru testare, bila sa primeasca AddRawForce/Input.Raw (sau ceva de genul) - forta sa nu creasca treptat, ci sa fie direct fie 1, fie -1
+6. <s>Adaugarea unui final pentru joc - dupa ce a colectat toate cele X pickup objects, sa se deschisa o usa/portal spre care trebuie sa ajunga playerul.</s>
+7. <s>Adaugarea unui end-game-screen pentru cand te prinde Enemy-ul (restart/back to main menu (butoane), "you collected X out of Y pickups" si altele asemenea).</s>
+8. <s>Pentru testare, bila sa primeasca AddRawForce/Input.Raw (sau ceva de genul) - forta sa nu creasca treptat, ci sa fie direct fie 1, fie -1</s>
+9. Rework pentru end menu - buton catre Main Menu
   
 
 <h1>GUI</h1>
