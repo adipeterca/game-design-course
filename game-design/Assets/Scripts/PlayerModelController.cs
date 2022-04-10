@@ -16,7 +16,26 @@ public class PlayerModelController : MonoBehaviour
     }
 
     // Multiplier for movement speed
-    private float movementSpeedMultiplier = 10;
+    private float movementSpeedMultiplier = 10.0f;
+
+    // Flag which tells us if the player is sprinting or not
+    private bool sprinting = false;
+
+    // Constant multiplier for when the player sprints
+    private const float sprintingMultiplier = 2.0f;
+
+    // Flag which tells us if the player has been exhausted before
+    private bool firstTimeExhausted = false;
+
+    // Constant for the timer value
+    private const float TIMER_VALUE = 5.0f;
+
+    // Timer during which player can not sprint
+    // When the player is exhausted, a period of `timer` seconds must pass until they can sprint again
+    private float timer = TIMER_VALUE;
+
+    // Constant amount to increase/decrease stamina by
+    private const float staminaModifyValue = 0.5f;
 
     // Rigidbody of the Player object
     private Rigidbody rb;
@@ -39,18 +58,23 @@ public class PlayerModelController : MonoBehaviour
     {
         if (GameManagerController.Instance.gameOver) return;
 
-        // The amount to modify (increase/decrease) stamina 
-        float staminaModifyValue = 0.5f;
-
-        // Just for testing the implementation
-        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() >= 0f)
+        if (!firstTimeExhausted)
         {
-            GuiManagerController.Instance.DecreaseStamina(staminaModifyValue);
+            UpdateStamina();
         }
         else
         {
-            // To take eight times as long to get back the stamina
-            GuiManagerController.Instance.IncreaseStamina(staminaModifyValue / 8);
+            if (timer > 0.0f)
+            {
+                GuiManagerController.Instance.IncreaseStamina(staminaModifyValue / 8);
+                timer -= Time.deltaTime;
+                if (timer < 0.0f)
+                    timer = 0.0f;
+            }
+            else
+            {
+                UpdateStamina();
+            }
         }
     }
 
@@ -61,7 +85,17 @@ public class PlayerModelController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         float h = Input.GetAxisRaw("Horizontal");
 
-        rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
+        if (sprinting)
+        {
+            Debug.Log("sprinting! stamina value: " + GuiManagerController.Instance.staminaSlider.value);
+            rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier * sprintingMultiplier);
+        }
+        else
+        {
+            Debug.Log("not sprinting! stamina value: " + GuiManagerController.Instance.staminaSlider.value);
+            rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -96,5 +130,27 @@ public class PlayerModelController : MonoBehaviour
     private void InitializePlayerState()
     {
         GuiManagerController.Instance.SetStamina(100);
+    }
+
+    void UpdateStamina()
+    {
+        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() > 0.0f)
+        {
+            sprinting = true;
+            GuiManagerController.Instance.DecreaseStamina(staminaModifyValue);
+
+            if (GuiManagerController.Instance.GetStamina() <= 0.0f)
+            {
+                firstTimeExhausted = true;
+                sprinting = false;
+                timer = TIMER_VALUE;
+            }
+        }
+        else
+        {
+            sprinting = false;
+            // To take eight times as long to get back the stamina 
+            GuiManagerController.Instance.IncreaseStamina(staminaModifyValue / 8);
+        }
     }
 }
