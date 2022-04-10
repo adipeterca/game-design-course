@@ -66,3 +66,4 @@
 1. Player-ul sprinteaza chiar si cand sta pe loc
 1. Player-ul sprinteaza uneori si in meniu
 1. Continue si Exit nu merg in-game (inainte mergeau)
+1. "EndgameMenu" acopera "OptionsMenu", trebuie setat sa inceapa dezactivat
