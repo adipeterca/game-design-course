@@ -85,14 +85,10 @@ public class PlayerModelController : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
         float h = Input.GetAxisRaw("Horizontal");
 
-        if (sprinting)
-        {
-            Debug.Log("sprinting! stamina value: " + GuiManagerController.Instance.staminaSlider.value);
+        if (sprinting) {
             rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier * sprintingMultiplier);
         }
-        else
-        {
-            Debug.Log("not sprinting! stamina value: " + GuiManagerController.Instance.staminaSlider.value);
+        else {
             rb.AddForce(new Vector3(h, 0, v) * movementSpeedMultiplier);
         }
 
