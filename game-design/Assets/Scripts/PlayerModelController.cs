@@ -58,6 +58,8 @@ public class PlayerModelController : MonoBehaviour
     {
         if (GameManagerController.Instance.gameOver) return;
 
+        if (GuiManagerController.Instance.optionsMenu.activeSelf) return;
+
         if (!firstTimeExhausted)
         {
             UpdateStamina();
@@ -130,7 +132,7 @@ public class PlayerModelController : MonoBehaviour
 
     void UpdateStamina()
     {
-        if (Input.GetKey(KeyCode.Space) && GuiManagerController.Instance.GetStamina() > 0.0f)
+        if (Input.GetKey(KeyCode.LeftShift) && GuiManagerController.Instance.GetStamina() > 0.0f)
         {
             sprinting = true;
             GuiManagerController.Instance.DecreaseStamina(staminaModifyValue);

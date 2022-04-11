@@ -82,7 +82,7 @@ public class GameManagerController : MonoBehaviour
         if (gameOver) return;
 
         // The user pressed the ESC key
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !gameOver)
         {
             if (!GuiManagerController.Instance.optionsMenu.activeSelf)
             {
@@ -128,6 +128,7 @@ public class GameManagerController : MonoBehaviour
 
     /// <summary>
     /// Callback for the 'Quit' button.
+    /// Also for the 'Back to main menu' button.
     /// It exists the current scene (1) and returns the user to the MainMenu scene (0).
     /// </summary>
     public void Quit()
@@ -150,7 +151,7 @@ public class GameManagerController : MonoBehaviour
         {
             endgameLight.SetActive(true);
             endgameCollider.SetActive(true);
-            GuiManagerController.Instance.DisplayEndGameText();
+            GuiManagerController.Instance.DisplayEndgameText();
         }
         GuiManagerController.Instance.UpdateCountText();
     }

@@ -53,7 +53,7 @@ public class GuiManagerController : MonoBehaviour
     /// Public method for displaying the end game text.
     /// Also deletes the count text.
     /// </summary>
-    public void DisplayEndGameText()
+    public void DisplayEndgameText()
     {
         countText.SetActive(false);
         endgameText.SetActive(true);
