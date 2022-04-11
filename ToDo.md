@@ -2,7 +2,7 @@
 
 1. Muzica (aprox. 3-10 minute) de atmosfera generala pentru MainScene (doar assetul)
 2. Sunet pentru Pickups (asset + setup)
-3. Muzica (aprox. 3-10 minute) de atmosfera pentru MainMenu (doar assetul)
+3. <s>Muzica (aprox. 3-10 minute) de atmosfera pentru MainMenu (doar assetul)</s>
 4. Sunet pentru jumpscare (asset + setup)
 5. <s>Sunet pentru lightswitch (asset + setup)</s>
 6. <s>Sunet pentru "prof" (asset + setup)</s>
@@ -17,13 +17,13 @@
     1. <s>Adaugarea unui "prof" (momentan un cub) care merge dintr-un punct (Vector3) in altul (lista de puncte fiind stabilita apriori), fara sa interactioneze cu mediul inconjurator</s>
     2. <s>Punctele reprezinta un "search-area", iar "prof"-ul se plimba de la un punct la altul (pe niste path-uri predefinite - deci lista initiala este impartita in niste subliste de puncte pe care "prof"-ul le va urmari) cautandu-l pe jucator. Daca il gaseste, isi lasa path-ul curent si incearca sa il prinda pe jucator. Daca acesta reuseste sa scape (adica sa iasa din aria "prof"-ului), atunci proful se intoarce la cautat (fie la cel mai aproapiat path pe care il poate urmari, fie la path-uri original, asta e mai mult alegerea celui care implementeaza).</s>
     3. <s>[ALTERNATIVA] "prof"-ul se poate spawna pentru cateva secunde intr-o locatie random dintr-o lista predefinita de locatii, iar daca nu-l gaseste pe player, se respawneaza in alta locatie.</s>
-5. Jucatorul poate avea "sprint" pe o perioada scurta pentru a putea fugi de "prof"
+5. <s>Jucatorul poate avea "sprint" pe o perioada scurta pentru a putea fugi de "prof"</s>
 
   
 <h1>GAME</h1>
 
 1. <s>Un nou layout definitiv, destul de mare incat sa poti colecta 10 obiecte in 5-10 minute</s>
-2. De pus un "cap" (valoare maxima) pe viteza pe care o poate prinde bila
+2. <s>De pus un "cap" (valoare maxima) pe viteza pe care o poate prinde bila</s> NO LONGER NEEDED
 3. <s>Lightswitches</s>
     1. <s>Adaugarea de light switches (momentan, fara design) - ele ar trebui sa fie singurele lumini vizibile pe minimap (nici macar playerul nu ar trebui sa fie vizibil ca sa nu stie unde se afla daca nu are nicio lumina activata)</s>
     2. <s>Configurarea light switch-urilor cu minimap-ul</s>
@@ -32,7 +32,7 @@
 6. <s>Adaugarea unui final pentru joc - dupa ce a colectat toate cele X pickup objects, sa se deschisa o usa/portal spre care trebuie sa ajunga playerul.</s>
 7. <s>Adaugarea unui end-game-screen pentru cand te prinde Enemy-ul (restart/back to main menu (butoane), "you collected X out of Y pickups" si altele asemenea).</s>
 8. <s>Pentru testare, bila sa primeasca AddRawForce/Input.Raw (sau ceva de genul) - forta sa nu creasca treptat, ci sa fie direct fie 1, fie -1</s>
-9. Rework pentru end menu - buton catre Main Menu
+9. <s>Rework pentru end menu - buton catre Main Menu</s>
   
 
 <h1>GUI</h1>
@@ -43,7 +43,7 @@
     2. <s>Meniul efectiv cu butoane "Continue" si "Exit" (momentan)</s>
 3. <s>Implementarea unui jumpscare (imagine care acopera tot ecranul si isi da fade in aprox. 3 secunde)</s>
 4. <s>Sprint bar pentru player</s>
-5. Numele jocului pe Main Menu
+5. <s>Numele jocului pe Main Menu</s>
 
  
 <h1>DESIGN</h1>
@@ -55,15 +55,15 @@
 1. Design pentru pereti si podea - de preferat un Photoshop sau o imagine prestabilita (adica o textura adevarata)
 1. Filler blocks pe nivel - dulapuri, cutii, in principal obiecte statice care sa ofere un look mai natural
 1. Animatie pentru intrarea in MainScene - un camera pan de sus?
-1. Icon pentru joc (aici intra si un Logo + un nume)
+1. <s>Icon pentru joc (aici intra si un Logo + un nume)</s>
 1. Design pentru Enemy
 1. Improvement pe partea de Main Scene (poate Enemy-ul in spate)
-1. Logo-ul si titlul de terminat
+1. <s>Logo-ul si titlul de terminat</s>
 
 
 <h1>KNOWN BUGS</h1>
 
 1. Player-ul sprinteaza chiar si cand sta pe loc
-1. Player-ul sprinteaza uneori si in meniu
-1. Continue si Exit nu merg in-game (inainte mergeau)
-1. "EndgameMenu" acopera "OptionsMenu", trebuie setat sa inceapa dezactivat
+1. <s>Player-ul sprinteaza uneori si in meniu</s>
+1. <s>Continue si Exit nu merg in-game (inainte mergeau)</s>
+1. <s>"EndgameMenu" acopera "OptionsMenu", trebuie setat sa inceapa dezactivat</s>
