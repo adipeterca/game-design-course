@@ -15,12 +15,22 @@ public class MainMenu : MonoBehaviour
     // Private reference to the camera Animator component
     private Animator cameraAnim;
 
+    // Array containing all audio sources from the Main menu scene
+    private AudioSource[] audios;
+
     private void Start()
     {
         cameraAnim = GetComponent<Animator>();
+        audios = FindObjectsOfType<AudioSource>();
 
         // Set default value for volume
-        UpdateVolume();
+        if (GlobalValues.GetInstance().volume == -1.0f)
+            UpdateVolume();
+        else
+        { 
+            volumeSlider.value = GlobalValues.GetInstance().volume;
+            SetAudio();
+        }
     }
 
     /// <summary>
@@ -59,5 +69,15 @@ public class MainMenu : MonoBehaviour
     public void UpdateVolume()
     {
         GlobalValues.GetInstance().volume = volumeSlider.value;
+        SetAudio();
+    }
+
+    /// <summary>
+    /// Private method for updating the volume on all audios from the main menu scene.
+    /// </summary>
+    private void SetAudio()
+    {
+        for (int i = 0; i < audios.Length; i++)
+            audios[i].volume = GlobalValues.GetInstance().volume;
     }
 }

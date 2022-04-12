@@ -12,8 +12,8 @@ public class GlobalValues
 
     private static GlobalValues instance;
 
-    // Volume set from the Options menu (defaults to 20)
-    public float volume = 20;
+    // Volume set from the Options menu (defaults to -1.0f)
+    public float volume = -1.0f;
 
     /// <summary>
     /// Public method of getting the singleton instance.

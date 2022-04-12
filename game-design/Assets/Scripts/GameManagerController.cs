@@ -69,7 +69,7 @@ public class GameManagerController : MonoBehaviour
 
         sounds = FindObjectsOfType<AudioSource>();
         for (int i = 0; i < sounds.Length; i++)
-            sounds[i].volume = GlobalValues.GetInstance().volume / 100.0f;
+            sounds[i].volume = GlobalValues.GetInstance().volume;
         soundsWasPlaying = new bool[sounds.Length];
 
         // Disable the end game light & collider at the start of the game
