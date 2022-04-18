@@ -51,6 +51,7 @@ public class PlayerModelController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
         InitializePlayerState();
     }
 
