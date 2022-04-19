@@ -44,6 +44,7 @@
 3. <s>Implementarea unui jumpscare (imagine care acopera tot ecranul si isi da fade in aprox. 3 secunde)</s>
 4. <s>Sprint bar pentru player</s>
 5. <s>Numele jocului pe Main Menu</s>
+6. Rework pentru Jumpscare (actually scary)
 
  
 <h1>DESIGN</h1>
