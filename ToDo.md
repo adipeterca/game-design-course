@@ -64,7 +64,7 @@
 
 <h1>KNOWN BUGS</h1>
 
-1. Player-ul sprinteaza chiar si cand sta pe loc
+1. <s>Player-ul sprinteaza chiar si cand sta pe loc</s>
 1. <s>Player-ul sprinteaza uneori si in meniu</s>
 1. <s>Continue si Exit nu merg in-game (inainte mergeau)</s>
 1. <s>"EndgameMenu" acopera "OptionsMenu", trebuie setat sa inceapa dezactivat</s>
