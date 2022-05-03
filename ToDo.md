@@ -6,6 +6,7 @@
 4. Sunet pentru jumpscare (asset + setup)
 5. <s>Sunet pentru lightswitch (asset + setup)</s>
 6. <s>Sunet pentru "prof" (asset + setup)</s>
+7. Sunet ambiental din Silent Hill pentru Main Menu
 
   
 <h1>SCRIPTS</h1>
@@ -33,6 +34,8 @@
 7. <s>Adaugarea unui end-game-screen pentru cand te prinde Enemy-ul (restart/back to main menu (butoane), "you collected X out of Y pickups" si altele asemenea).</s>
 8. <s>Pentru testare, bila sa primeasca AddRawForce/Input.Raw (sau ceva de genul) - forta sa nu creasca treptat, ci sa fie direct fie 1, fie -1</s>
 9. <s>Rework pentru end menu - buton catre Main Menu</s>
+10. Credits scene dupa terminarea jocului (doar daca e win)
+11. Dificultate selectabila din meniul de optiuni
   
 
 <h1>GUI</h1>
@@ -58,7 +61,7 @@
 1. Animatie pentru intrarea in MainScene - un camera pan de sus?
 1. <s>Icon pentru joc (aici intra si un Logo + un nume)</s>
 1. Design pentru Enemy
-1. Improvement pe partea de Main Scene (poate Enemy-ul in spate)
+1. <s>Improvement pe partea de Main Scene (poate Enemy-ul in spate)</s>
 1. <s>Logo-ul si titlul de terminat</s>
 
 
