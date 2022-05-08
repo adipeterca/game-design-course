@@ -47,11 +47,12 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     public void QuitGame()
     {
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #else
-                Application.Quit();
-        #endif
+        // #if UNITY_EDITOR
+        //         UnityEditor.EditorApplication.isPlaying = false;
+        // #else
+        //         Application.Quit();
+        // #endif
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
     }
 
     /// <summary>
