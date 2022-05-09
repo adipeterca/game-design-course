@@ -15,6 +15,9 @@ public class GlobalValues
     // Volume set from the Options menu (defaults to -1.0f)
     public float volume = -1.0f;
 
+    // Difficulty (defaults to 2 - Medium)
+    public int difficulty = 2;
+
     /// <summary>
     /// Public method of getting the singleton instance.
     /// </summary>

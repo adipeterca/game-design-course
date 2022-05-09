@@ -73,6 +73,14 @@ public class MainMenu : MonoBehaviour
     }
 
     /// <summary>
+    /// Private method which saves which difficulty was selected. Defaults to "Medium".
+    /// </summary>
+    public void ChangeDifficulty(int type)
+    {
+        GlobalValues.GetInstance().difficulty = type;
+    }
+
+    /// <summary>
     /// Private method for updating the volume on all audios from the main menu scene.
     /// </summary>
     private void SetAudio()
