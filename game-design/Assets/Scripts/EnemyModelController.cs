@@ -20,12 +20,13 @@ public class EnemyModelController : MonoBehaviour
     // A list of positions at which the enemy can teleport to
     public Transform[] respawnPositions;
 
+    // At which interval to move the enemy to a different, random location (in seconds)
+    [HideInInspector]
+    public float respawnTime;
+
 
     // The NavMeshAgent reference which is used to move the Enemy to the Player
     private NavMeshAgent agent;
-
-    // At which interval to move the enemy to a different, random location (in seconds)
-    private float respawnTime = 60;
 
     // The search distance for the Player for each respawn point
     private int distance = 30;
@@ -94,6 +95,15 @@ public class EnemyModelController : MonoBehaviour
         }
 
         return result;
+    }
+
+    /// <summary>
+    /// Returns the NavMeshAgent of the Enemy.
+    /// </summary>
+    /// <returns>the NavMeshAgent of the Enemy</returns>
+    public NavMeshAgent GetAgent()
+    {
+        return agent;
     }
 
     private void OnCollisionEnter(Collision collision)

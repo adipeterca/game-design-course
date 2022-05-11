@@ -45,8 +45,8 @@ public class GuiManagerController : MonoBehaviour
 
     private void Start()
     {
-        UpdateCountText();
         endgameText.SetActive(false);
+        UpdateCountText();
     }
 
     /// <summary>
@@ -78,7 +78,8 @@ public class GuiManagerController : MonoBehaviour
     /// </summary>
     public void UpdateCountText()
     {
-        countText.GetComponent< TextMeshProUGUI>().text = GameManagerController.Instance.GetScore() + " / " + GameManagerController.Instance.pickupCount;
+        countText.GetComponent<TextMeshProUGUI>().text = GameManagerController.Instance.GetScore() + " / " + GameManagerController.Instance.GetPickupCount();
+        // Debug.Log("aici avem " + GameManagerController.Instance.pickupCount + " pickups");
     }
 
     /// <summary>

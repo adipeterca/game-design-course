@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
 
@@ -12,12 +13,12 @@ public class GameManagerController : MonoBehaviour
     // Public pickup reference
     public GameObject pickupReference;
 
-    // The number of pickup objects to spawn at the start of the game
-    [Range(1, 10)]
-    public int pickupCount;
-
     // Spawn points in which a pickup may spawn
     public GameObject[] pickupSpawnPoints;
+
+    // The number of pickup objects to spawn at the start of the game
+    private int pickupCount = -1;
+
 
     [Header("End Game")]
     // The light which will be displayed once all pickup objects are collected
@@ -65,7 +66,10 @@ public class GameManagerController : MonoBehaviour
 
     private void Start()
     {
-        SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
+        if (GlobalValues.GetInstance().volume == -1.0f)
+        {
+            Debug.LogWarning("GlobalValue volume set to -1.0f, dumbass!");
+        }
 
         sounds = FindObjectsOfType<AudioSource>();
         for (int i = 0; i < sounds.Length; i++)
@@ -75,6 +79,13 @@ public class GameManagerController : MonoBehaviour
         // Disable the end game light & collider at the start of the game
         endgameLight.SetActive(false);
         endgameCollider.SetActive(false);
+
+        SetDifficulty();
+        SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
+
+        // Bug fixing: the GUI starts before this script (I don't really know why) and, in order to make sure
+        // the count number is correct, we call the update method one more time.
+        GuiManagerController.Instance.UpdateCountText();
     }
 
     private void Update()
@@ -163,6 +174,44 @@ public class GameManagerController : MonoBehaviour
     public int GetScore()
     {
         return playerScore;
+    }
+
+    /// <summary>
+    /// Public getter for the number of pickups.
+    /// </summary>
+    /// <returns>the number of pickups</returns>
+    public int GetPickupCount()
+    {
+        return pickupCount;
+    }
+
+    /// <summary>
+    /// Public method which adjusts the game settings to fit a certain difficulty.<br></br>
+    /// Difficulty varies from 1 to 3, 1 meaning easy and 3 meaning hard.
+    /// </summary>
+    public void SetDifficulty()
+    {
+        if (GlobalValues.GetInstance().difficulty == 1)
+        {
+            pickupCount = 4;
+            EnemyModelController.Instance.respawnTime = 30;
+            EnemyModelController.Instance.GetAgent().speed = 3;
+            EnemyModelController.Instance.GetAgent().acceleration = 4;
+        }
+        else if (GlobalValues.GetInstance().difficulty == 2)
+        {
+            pickupCount = 7;
+            EnemyModelController.Instance.respawnTime = 45;
+            EnemyModelController.Instance.GetAgent().speed = 4;
+            EnemyModelController.Instance.GetAgent().acceleration = 6;
+        }
+        else
+        {
+            pickupCount = 10;
+            EnemyModelController.Instance.respawnTime = 60;
+            EnemyModelController.Instance.GetAgent().speed = 5;
+            EnemyModelController.Instance.GetAgent().acceleration = 8;
+        }
     }
 
     /// <summary>
