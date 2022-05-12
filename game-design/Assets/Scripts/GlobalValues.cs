@@ -12,8 +12,8 @@ public class GlobalValues
 
     private static GlobalValues instance;
 
-    // Volume set from the Options menu (defaults to -1.0f)
-    public float volume = -1.0f;
+    // Volume set from the Options menu (defaults to 0.69f)
+    public float volume = 0.69f;
 
     // Difficulty (defaults to 2 - Medium)
     public int difficulty = 2;

@@ -66,9 +66,9 @@ public class GameManagerController : MonoBehaviour
 
     private void Start()
     {
-        if (GlobalValues.GetInstance().volume == -1.0f)
+        if (GlobalValues.GetInstance().volume == 0.69f)
         {
-            Debug.LogWarning("GlobalValue volume set to -1.0f, dumbass!");
+            Debug.LogWarning("GlobalValue volume set to -0.69f, dumbass!");
         }
 
         sounds = FindObjectsOfType<AudioSource>();
