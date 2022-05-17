@@ -24,6 +24,9 @@ public class GuiManagerController : MonoBehaviour
     // Endgame image which will give a fade out effect
     public GameObject endgameMenu;
 
+    // Music to be played when the credits are displayed
+    public AudioSource creditsMusic;
+
     private GuiManagerController() { }
 
     public static GuiManagerController Instance
@@ -68,7 +71,10 @@ public class GuiManagerController : MonoBehaviour
     public void DisplayEndgameMenu(int type)
     {
         if (type == 1)
+        {
             endgameMenu.GetComponent<Animator>().SetTrigger("Win");
+            creditsMusic.Play();
+        }
         else
             endgameMenu.GetComponent<Animator>().SetTrigger("Lose");
     }

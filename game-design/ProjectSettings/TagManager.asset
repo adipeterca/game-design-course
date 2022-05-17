@@ -8,6 +8,7 @@ TagManager:
   - Jumpscare
   - Lightswitch
   - Endgame
+  - CreditsMusic
   layers:
   - Default
   - TransparentFX
