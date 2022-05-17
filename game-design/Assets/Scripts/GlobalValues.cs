@@ -12,11 +12,14 @@ public class GlobalValues
 
     private static GlobalValues instance;
 
-    // Volume set from the Options menu (defaults to 0.69f)
-    public float volume = 0.69f;
+    public const float defaultVolume = 0.069f;
+    public const int defaultDifficulty = 0;
 
-    // Difficulty (defaults to 2 - Medium)
-    public int difficulty = 2;
+    // Volume set from the Options menu
+    public float volume = defaultVolume;
+
+    // Difficulty of the game
+    public int difficulty = defaultDifficulty;
 
     /// <summary>
     /// Public method of getting the singleton instance.

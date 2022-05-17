@@ -5,12 +5,15 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 /// <summary>
-/// Camera and main menu controller
+/// Camera and main menu controller.
 /// </summary>
 public class MainMenu : MonoBehaviour
 {
     // Public reference to the volume slider
     public Slider volumeSlider;
+
+    // Public reference for the underline of each button when it is selected
+    public GameObject[] selectedButton;
 
     // Private reference to the camera Animator component
     private Animator cameraAnim;
@@ -24,12 +27,22 @@ public class MainMenu : MonoBehaviour
         audios = FindObjectsOfType<AudioSource>();
 
         // Set default value for volume
-        if (GlobalValues.GetInstance().volume == -1.0f)
+        if (GlobalValues.GetInstance().volume == GlobalValues.defaultVolume)
             UpdateVolume();
         else
         { 
             volumeSlider.value = GlobalValues.GetInstance().volume;
             SetAudio();
+        }
+
+        // Set default value for difficulty
+        if (GlobalValues.GetInstance().difficulty == GlobalValues.defaultDifficulty)
+        {
+            ChangeDifficulty(2);
+        }
+        else
+        {
+            ChangeDifficulty(GlobalValues.GetInstance().difficulty);
         }
     }
 
@@ -78,6 +91,13 @@ public class MainMenu : MonoBehaviour
     public void ChangeDifficulty(int type)
     {
         GlobalValues.GetInstance().difficulty = type;
+        for (int i = 0; i < selectedButton.Length; i++)
+        {
+            if (i + 1 == type)
+                selectedButton[i].SetActive(true);
+            else
+                selectedButton[i].SetActive(false);
+        }
     }
 
     /// <summary>

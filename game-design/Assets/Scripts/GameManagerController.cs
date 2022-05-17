@@ -66,10 +66,7 @@ public class GameManagerController : MonoBehaviour
 
     private void Start()
     {
-        if (GlobalValues.GetInstance().volume == 0.69f)
-        {
-            Debug.LogWarning("GlobalValue volume set to -0.69f, dumbass!");
-        }
+        Debug.Log("Starting values for volume and difficulty: \nDifficulty " + GlobalValues.GetInstance().difficulty + "\nVolume " + GlobalValues.GetInstance().volume);
 
         sounds = FindObjectsOfType<AudioSource>();
         for (int i = 0; i < sounds.Length; i++)
@@ -81,6 +78,7 @@ public class GameManagerController : MonoBehaviour
         endgameCollider.SetActive(false);
 
         SetDifficulty();
+        Debug.Log("Set pickup count from Start in GameManagerController after SetDifficulty(): " + pickupCount);
         SpawnPrefabs(pickupReference, pickupSpawnPoints, pickupCount);
 
         // Bug fixing: the GUI starts before this script (I don't really know why) and, in order to make sure
@@ -191,6 +189,7 @@ public class GameManagerController : MonoBehaviour
     /// </summary>
     public void SetDifficulty()
     {
+        Debug.Log("Entered SetDifficulty()");
         if (GlobalValues.GetInstance().difficulty == 1)
         {
             pickupCount = 4;
@@ -212,6 +211,7 @@ public class GameManagerController : MonoBehaviour
             EnemyModelController.Instance.GetAgent().speed = 5;
             EnemyModelController.Instance.GetAgent().acceleration = 8;
         }
+        Debug.Log("Exited SetDifficulty()");
     }
 
     /// <summary>

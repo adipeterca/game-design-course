@@ -789,7 +789,7 @@ PrefabInstance:
     - target: {fileID: 8216769287754125711, guid: 28f319698a01f514983b2553fbe74d55,
         type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 1409286143
+      value: 4177526783
       objectReference: {fileID: 0}
     - target: {fileID: 9071621543676680106, guid: 28f319698a01f514983b2553fbe74d55,
         type: 3}
@@ -3198,7 +3198,7 @@ MonoBehaviour:
 
     Song 4
 
-    
+
 
     Adrian Peterca
 
@@ -3207,7 +3207,7 @@ MonoBehaviour:
 
     Maria Olariu
 
-    
+
 
     Brakeys
 
@@ -4617,11 +4617,11 @@ RectTransform:
   m_Father: {fileID: 1107276319}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -300}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!1001 &1916633112
 PrefabInstance:
   m_ObjectHideFlags: 0
